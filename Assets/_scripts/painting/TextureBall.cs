@@ -14,6 +14,7 @@ public class TextureBall : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
+        print("werkt");
         switch (collision.gameObject.tag)
         {
             case Tags.paintable:
