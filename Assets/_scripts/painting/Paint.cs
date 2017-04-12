@@ -1,21 +1,10 @@
-﻿using System.Collections;
+﻿//Brian Boersen
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Painting : MonoBehaviour
+public class Paint : MonoBehaviour
 {
-    /*    SteamVR_TrackedController[] TrackedControllers;
-
-        void Start()
-        {
-            TrackedControllers = FindObjectsOfType<SteamVR_TrackedController>();
-            foreach(var c in TrackedControllers)
-            {
-                Debug.Log(c.transform.name);
-            }
-        }
-        */
-
     public void changeColor(GameObject gameobj,Color color)
     {
         Renderer rend = gameobj.GetComponent<Renderer>();
