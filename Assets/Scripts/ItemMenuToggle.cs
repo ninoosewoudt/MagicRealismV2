@@ -33,8 +33,9 @@ public class ItemMenuToggle : MonoBehaviour {
 		if (player.leftHand.controller.GetPressUp (SteamVR_Controller.ButtonMask.ApplicationMenu)) {
 			if (init) {
 				itemMenu.transform.parent = player.leftHand.transform;
-				itemMenu.transform.position = Vector3.zero;
-				itemMenu.transform.rotation = Quaternion.identity;
+				itemMenu.transform.position = player.leftHand.transform.position + new Vector3(0,+0.4f,+0.4f);
+				itemMenu.transform.rotation = player.leftHand.transform.rotation;
+
 				init = false;
 			}
 
