@@ -23,9 +23,6 @@ public class TextureBall : MonoBehaviour
                 changeThisMaterial(other.gameObject.GetComponent<Renderer>());
                 break;
 
-            case Tags.untagged:
-                destroyBall();
-                break;
         }
     }
 
