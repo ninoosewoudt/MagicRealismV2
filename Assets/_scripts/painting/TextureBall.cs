@@ -9,20 +9,22 @@ public class TextureBall : MonoBehaviour
 	void Start ()
     {        
         thisRenderer = GetComponent<Renderer>();
-        print(thisRenderer);
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider other)
     {
-        print("werkt");
-        switch (collision.gameObject.tag)
+        switch (other.gameObject.tag)
         {
             case Tags.paintable:
-                changeOtherMaterial(collision.gameObject.GetComponent<Renderer>());
+                changeOtherMaterial(other.gameObject.GetComponent<Renderer>());
                 break;
 
             case Tags.materialButton:
-                changeThisMaterial(collision.gameObject.GetComponent<Renderer>());
+                changeThisMaterial(other.gameObject.GetComponent<Renderer>());
+                break;
+
+            case Tags.untagged:
+                destroyBall();
                 break;
         }
     }
@@ -30,12 +32,17 @@ public class TextureBall : MonoBehaviour
     private void changeOtherMaterial(Renderer rend)
     {
         rend.material = thisRenderer.material;
-        Destroy(this.gameObject);
+        destroyBall();
     }
 
     private void changeThisMaterial(Renderer rend)
     {
         if (thisRenderer != rend.material)
         thisRenderer.material = rend.material;
+    }
+
+    private void destroyBall()
+    {
+        Destroy(this.gameObject);
     }
 }
