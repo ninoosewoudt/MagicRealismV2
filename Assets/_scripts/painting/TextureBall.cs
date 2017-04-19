@@ -20,7 +20,7 @@ public class TextureBall : MonoBehaviour
         player = Player.instance;
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerStay(Collider other)
     {
         switch (other.gameObject.tag)
         {
@@ -30,6 +30,8 @@ public class TextureBall : MonoBehaviour
 				changeOtherMaterial (other.gameObject.GetComponent<Renderer> ());
 
 			} else {
+				player.leftHand.DetachObject (this.gameObject);
+				player.rightHand.DetachObject (this.gameObject);
 				return;
 			}
                 break;
