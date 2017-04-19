@@ -7,7 +7,13 @@ public class TextureBall : MonoBehaviour
 {
     private Renderer thisRenderer;
     private Player player;
+	private GameObject hand1;
+	private GameObject hand2;
 
+	void Awake(){
+		hand1 = GameObject.Find ("hand1");
+		hand2 = GameObject.Find ("hand2");
+	}
 	void Start ()
     {       
         thisRenderer = GetComponent<Renderer>();
@@ -18,9 +24,14 @@ public class TextureBall : MonoBehaviour
     {
         switch (other.gameObject.tag)
         {
-            case Tags.paintable:
-                if(this.gameObject.transform.parent != player.leftHand || this.gameObject.transform.parent != player.rightHand)
-                changeOtherMaterial(other.gameObject.GetComponent<Renderer>());
+		case Tags.paintable:
+			
+			if (this.gameObject.transform.parent == hand1 || this.gameObject.transform.parent == hand2 ) {
+				changeOtherMaterial (other.gameObject.GetComponent<Renderer> ());
+
+			} else {
+				return;
+			}
                 break;
 
             case Tags.materialButton:
