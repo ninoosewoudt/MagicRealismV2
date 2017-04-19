@@ -1,14 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR.InteractionSystem;
 
 public class TextureBall : MonoBehaviour
 {
     private Renderer thisRenderer;
+    private Player player;
 
 	void Start ()
-    {        
+    {       
         thisRenderer = GetComponent<Renderer>();
+        player = Player.instance;
     }
 
     void OnTriggerEnter(Collider other)
@@ -16,6 +19,7 @@ public class TextureBall : MonoBehaviour
         switch (other.gameObject.tag)
         {
             case Tags.paintable:
+                if(this.gameObject.transform.parent != player.leftHand || this.gameObject.transform.parent != player.rightHand)
                 changeOtherMaterial(other.gameObject.GetComponent<Renderer>());
                 break;
 
