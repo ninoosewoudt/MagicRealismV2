@@ -7,4 +7,5 @@ public class Tags : MonoBehaviour
     public const string untagged = "Untagged";
     public const string paintable = "Paintable";
     public const string materialButton = "MaterialButton";
+    public const string gamemanager = "Gamemanager";
 }

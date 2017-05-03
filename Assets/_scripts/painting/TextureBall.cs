@@ -6,45 +6,54 @@ using Valve.VR.InteractionSystem;
 public class TextureBall : MonoBehaviour
 {
     private Renderer thisRenderer;
-    private Player player;
-	private GameObject hand1;
-	private GameObject hand2;
+    private Player player; 
 
-	void Awake(){
-		hand1 = GameObject.Find ("hand1");
-		hand2 = GameObject.Find ("hand2");
-	}
-	void Start ()
-    {       
+    private GameObject gameManager;
+    private Splash splash;
+
+	void Awake()
+    {
+        //print("left controler = " + player.leftHand.gameObject);
         thisRenderer = GetComponent<Renderer>();
         player = Player.instance;
+
+        gameManager = GameObject.FindGameObjectWithTag(Tags.gamemanager);
+
+        if(gameManager != null)
+        {
+            splash = gameManager.GetComponent<Splash>();
+        }
+        else
+        {
+            Debug.LogError("no splash script");
+        }       
     }
 
     void OnTriggerStay(Collider other)
     {
         switch (other.gameObject.tag)
         {
-		case Tags.paintable:
-			
-			if (this.gameObject.transform.parent == hand1 || this.gameObject.transform.parent == hand2 ) {
-				changeOtherMaterial (other.gameObject.GetComponent<Renderer> ());
-
-			} else {
-				player.leftHand.DetachObject (this.gameObject);
-				player.rightHand.DetachObject (this.gameObject);
-				return;
-			}
-                break;
+		    case Tags.paintable:
+                changeOtherMaterial(other.gameObject.GetComponent<Renderer>());
+            break;
 
             case Tags.materialButton:
                 changeThisMaterial(other.gameObject.GetComponent<Renderer>());
-                break;
-
+            break;
         }
     }
 
     private void changeOtherMaterial(Renderer rend)
     {
+        for(int i = 0; i <= player.handCount -1; i++)
+        {
+            if (player.GetHand(i).currentAttachedObject == this.gameObject)
+            {
+                player.GetHand(i).DetachObject(this.gameObject);
+            }
+        }
+
+        splash.spawn(this.transform.position);
         rend.material = thisRenderer.material;
         destroyBall();
     }
