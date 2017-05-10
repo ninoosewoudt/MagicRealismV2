@@ -27,7 +27,8 @@ public class ItemMenuToggle : MonoBehaviour {
 	}
 
 
-	void Update (){
+	void Update ()
+    {
 		if (player == null || player.leftHand == null || player.leftHand.controller == null)
 			return;
 		if (player.leftHand.controller.GetPressUp (SteamVR_Controller.ButtonMask.ApplicationMenu)) {

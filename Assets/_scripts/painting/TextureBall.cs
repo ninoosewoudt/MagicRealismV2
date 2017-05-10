@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿//Brian Boersen
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR.InteractionSystem;
@@ -13,7 +14,6 @@ public class TextureBall : MonoBehaviour
 
 	void Awake()
     {
-        //print("left controler = " + player.leftHand.gameObject);
         thisRenderer = GetComponent<Renderer>();
         player = Player.instance;
 
