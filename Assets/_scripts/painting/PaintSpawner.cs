@@ -10,7 +10,8 @@ public class PaintSpawner : MonoBehaviour
 
 	[SerializeField]
 	private GameObject PaintPrefab; 
-	private GameObject paint;
+	private GameObject neweBall;
+    private TextureBall materialRegulator;
 
     private Vector2 axisStartPoint;
     private Vector2 touchpadAxis;
@@ -43,10 +44,10 @@ public class PaintSpawner : MonoBehaviour
 
 		if (player.rightHand.controller.GetPressUp (SteamVR_Controller.ButtonMask.ApplicationMenu))
         {			
-			paint = Instantiate (PaintPrefab, new Vector3(0,0,0) , Quaternion.identity);
-			paint.transform.position = player.rightHand.transform.position;
-            paint.GetComponent<TextureBall>().changeThisMaterial(materials[currentSelectedMat]);
-		}
+			neweBall = Instantiate (PaintPrefab, new Vector3(0,0,0) , Quaternion.identity);
+			neweBall.transform.position = player.rightHand.transform.position;
+            materialRegulator = neweBall.GetComponent<TextureBall>();
+        }
 
         checkTouchpad();     
 	}
@@ -69,7 +70,7 @@ public class PaintSpawner : MonoBehaviour
 			if (touchpadAxis.y - axisStartPoint.y > scrollSpeed)
             {
                 print("scroll up");
-                selectMat(1);
+                selectMat(1);              
                 axisStartPoint = touchpadAxis;
             }
 
@@ -78,7 +79,7 @@ public class PaintSpawner : MonoBehaviour
 			{
 				print("scroll down");
                 selectMat(-1);
-				axisStartPoint = touchpadAxis;
+                axisStartPoint = touchpadAxis;
 			}
         }
         else if (firstTouch == false)
@@ -89,18 +90,21 @@ public class PaintSpawner : MonoBehaviour
 
     private void selectMat(int plusOrMin)
     {
-        if(currentSelectedMat + plusOrMin > materials.Length - 1)
+        currentSelectedMat += plusOrMin;
+
+        if (currentSelectedMat > materials.Length - 1)
         {
-            currentSelectedMat = 0;
-            return;         
+            currentSelectedMat = 0;        
         }
 
-        if(currentSelectedMat + plusOrMin < 0)
+        if(currentSelectedMat < 0)
         {
             currentSelectedMat = materials.Length - 1;
-            return;
         }
 
-        currentSelectedMat += plusOrMin;
+        if (neweBall != null)
+        {
+            materialRegulator.changeThisMaterial(materials[currentSelectedMat]);
+        }
     }
 }
