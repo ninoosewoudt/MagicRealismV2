@@ -89,6 +89,18 @@ public class PaintSpawner : MonoBehaviour
 
     private void selectMat(int plusOrMin)
     {
+        if(currentSelectedMat + plusOrMin > materials.Length - 1)
+        {
+            currentSelectedMat = 0;
+            return;         
+        }
+
+        if(currentSelectedMat + plusOrMin < 0)
+        {
+            currentSelectedMat = materials.Length - 1;
+            return;
+        }
+
         currentSelectedMat += plusOrMin;
     }
 }
