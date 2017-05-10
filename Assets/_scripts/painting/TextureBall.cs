@@ -38,7 +38,7 @@ public class TextureBall : MonoBehaviour
             break;
 
             case Tags.materialButton:
-                changeThisMaterial(other.gameObject.GetComponent<Renderer>());
+                //changeThisMaterial(other.gameObject.GetComponent<Renderer>());
             break;
         }
     }
@@ -58,10 +58,9 @@ public class TextureBall : MonoBehaviour
         destroyBall();
     }
 
-    private void changeThisMaterial(Renderer rend)
+    public void changeThisMaterial(Material mat)
     {
-        if (thisRenderer != rend.material)
-        thisRenderer.material = rend.material;
+        thisRenderer.material = mat;
     }
 
     private void destroyBall()

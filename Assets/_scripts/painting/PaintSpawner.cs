@@ -20,9 +20,20 @@ public class PaintSpawner : MonoBehaviour
 
     private bool firstTouch = true;
 
+    private Material[] materials;
+    private int currentSelectedMat;
+
     void Start ()
     {
-		player = Player.instance;
+        //dit durrde een uur voordat het werkt andere methodes werken niet
+        materials = Resources.LoadAll<Material>("PaintMaterials");
+
+        if(materials.Length == 0)
+        {
+            Debug.LogError("no resources detected!! please make sure you have resources in the map Assets/Resources/PaintMaterials");
+        }
+                
+        player = Player.instance;
 	}
 
 	void Update ()
@@ -34,6 +45,7 @@ public class PaintSpawner : MonoBehaviour
         {			
 			paint = Instantiate (PaintPrefab, new Vector3(0,0,0) , Quaternion.identity);
 			paint.transform.position = player.rightHand.transform.position;
+            paint.GetComponent<TextureBall>().changeThisMaterial(materials[currentSelectedMat]);
 		}
 
         checkTouchpad();     
@@ -57,13 +69,15 @@ public class PaintSpawner : MonoBehaviour
 			if (touchpadAxis.y - axisStartPoint.y > scrollSpeed)
             {
                 print("scroll up");
-				axisStartPoint = touchpadAxis;
+                selectMat(1);
+                axisStartPoint = touchpadAxis;
             }
 
 			//scroll down
 			if (touchpadAxis.y - axisStartPoint.y < -scrollSpeed)
 			{
 				print("scroll down");
+                selectMat(-1);
 				axisStartPoint = touchpadAxis;
 			}
         }
@@ -71,5 +85,10 @@ public class PaintSpawner : MonoBehaviour
         {
             firstTouch = true;
         }
+    }
+
+    private void selectMat(int plusOrMin)
+    {
+        currentSelectedMat += plusOrMin;
     }
 }
