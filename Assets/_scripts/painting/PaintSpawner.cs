@@ -15,6 +15,9 @@ public class PaintSpawner : MonoBehaviour
     private Vector2 axisStartPoint;
     private Vector2 touchpadAxis;
 
+	[SerializeField]
+	private float scrollSpeed = 0.3f;
+
     private bool firstTouch = true;
 
     void Start ()
@@ -41,7 +44,8 @@ public class PaintSpawner : MonoBehaviour
         if (player.rightHand.controller.GetTouch(SteamVR_Controller.ButtonMask.Touchpad))
         {
             touchpadAxis = player.rightHand.controller.GetAxis(Valve.VR.EVRButtonId.k_EButton_SteamVR_Touchpad);
-            print(touchpadAxis);
+
+			//print (touchpadAxis);
 
             if (firstTouch == true)
             {
@@ -49,10 +53,19 @@ public class PaintSpawner : MonoBehaviour
                 firstTouch = false;
             }
 
-            if (Mathf.Abs(touchpadAxis.x - axisStartPoint.x) > 0.3)
+			//scroll up
+			if (touchpadAxis.y - axisStartPoint.y > scrollSpeed)
             {
-                print("scroll");
+                print("scroll up");
+				axisStartPoint = touchpadAxis;
             }
+
+			//scroll down
+			if (touchpadAxis.y - axisStartPoint.y < -scrollSpeed)
+			{
+				print("scroll down");
+				axisStartPoint = touchpadAxis;
+			}
         }
         else if (firstTouch == false)
         {
