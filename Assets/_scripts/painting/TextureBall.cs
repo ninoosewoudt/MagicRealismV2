@@ -31,7 +31,7 @@ public class TextureBall : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.tag == Tags.paintable)
+        if (other.gameObject.tag == Tags.paintable || other.gameObject.tag == Tags.wall)
         {
             changeOtherMaterial(other.gameObject.GetComponent<Renderer>());
         }
