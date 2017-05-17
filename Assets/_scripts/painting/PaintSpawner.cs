@@ -43,8 +43,7 @@ public class PaintSpawner : MonoBehaviour
 			return;
 
 		if (player.rightHand.controller.GetPressUp (SteamVR_Controller.ButtonMask.ApplicationMenu))
-        {	
-			
+        {			
 			neweBall = Instantiate (PaintPrefab, new Vector3(0,0,0) , Quaternion.identity);
 			neweBall.transform.position = player.rightHand.transform.position;
             materialRegulator = neweBall.GetComponent<TextureBall>();
