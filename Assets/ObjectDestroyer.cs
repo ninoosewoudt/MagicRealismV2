@@ -7,35 +7,38 @@ using Valve.VR.InteractionSystem;
 public class ObjectDestroyer : MonoBehaviour {
 	[SerializeField]
 	private Player player;
-	private LineRenderer linerenderer;
 	private Hand hand;
 
+	private GameObject cur;
 
-
-
-	void Start () {
+	void Start () 
+	{
 		player = Player.instance;
-
 	}
 
 
-	void Update (){
+	void Update ()
+	{
 		if (player == null || player.rightHand == null || player.rightHand.controller == null)
 			return;
-		
-		Debug.Log(player.leftHand.currentAttachedObject.gameObject);
-		Debug.Log(player.leftHand.currentAttachedObject.name);
+
+		if(cur == null)
+		{
+			cur = player.rightHand.currentAttachedObject;
+		}
+
+		if (player.rightHand.controller.GetPressUp (SteamVR_Controller.ButtonMask.Grip)) 
+		{
+			if (player.rightHand.currentAttachedObject == cur)
+				return;
+
+			var obj = player.rightHand.currentAttachedObject;
+			player.rightHand.DetachObject (player.rightHand.currentAttachedObject);
+			Destroy (obj);
 
 
-		if (player.leftHand.controller.GetPressUp (SteamVR_Controller.ButtonMask.Grip)) {
-			
-
-
-
-
-	
-
-		} else {
+		} else 
+		{
 			return;
 		}
 

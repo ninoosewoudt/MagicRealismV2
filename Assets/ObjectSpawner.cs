@@ -19,6 +19,8 @@ public class ObjectSpawner : MonoBehaviour
     private GameObject[] objects;
     private int currentSelectedObj;
 
+	private GameObject newGameObject;
+
     void Start()
     {
         //dit durrde een uur voordat het werkt andere methodes werken niet
@@ -39,11 +41,19 @@ public class ObjectSpawner : MonoBehaviour
 
         if (player.leftHand.controller.GetPressUp(SteamVR_Controller.ButtonMask.ApplicationMenu))
         {
-            GameObject newGameObject = Instantiate(objects[currentSelectedObj], new Vector3(0, 0, 0), Quaternion.identity);
+            newGameObject = Instantiate(objects[currentSelectedObj], new Vector3(0, 0, 0), Quaternion.identity);
             newGameObject.transform.position = player.leftHand.transform.position;
         }
 
         checkTouchpad();
+
+		if(newGameObject != null)
+		{
+			if(newGameObject.GetComponent<Rigidbody>().isKinematic == false)
+			{
+				newGameObject = null;
+			}
+		}
     }
 
     private void checkTouchpad()
@@ -63,7 +73,6 @@ public class ObjectSpawner : MonoBehaviour
             //scroll up
             if (touchpadAxis.y - axisStartPoint.y > scrollSpeed)
             {
-                print("scroll up");
                 selectMat(1);
                 axisStartPoint = touchpadAxis;
             }
@@ -71,7 +80,6 @@ public class ObjectSpawner : MonoBehaviour
             //scroll down
             if (touchpadAxis.y - axisStartPoint.y < -scrollSpeed)
             {
-                print("scroll down");
                 selectMat(-1);
                 axisStartPoint = touchpadAxis;
             }
@@ -95,5 +103,12 @@ public class ObjectSpawner : MonoBehaviour
         {
             currentSelectedObj = objects.Length - 1;
         }
+
+		if(newGameObject != null && newGameObject.transform.parent == null)
+		{
+			Transform trans = newGameObject.transform;
+			Destroy (newGameObject);
+			newGameObject = Instantiate (objects [currentSelectedObj], trans.position, trans.rotation);
+		}
     }
 }

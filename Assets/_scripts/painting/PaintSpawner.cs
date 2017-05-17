@@ -1,4 +1,4 @@
-﻿//Brian Boersen
+﻿	//Brian Boersen
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -43,10 +43,12 @@ public class PaintSpawner : MonoBehaviour
 			return;
 
 		if (player.rightHand.controller.GetPressUp (SteamVR_Controller.ButtonMask.ApplicationMenu))
-        {			
+        {	
+			
 			neweBall = Instantiate (PaintPrefab, new Vector3(0,0,0) , Quaternion.identity);
 			neweBall.transform.position = player.rightHand.transform.position;
             materialRegulator = neweBall.GetComponent<TextureBall>();
+			materialRegulator.changeThisMaterial (materials[Random.Range (0,materials.Length)]);
         }
 
         checkTouchpad();     
@@ -69,7 +71,6 @@ public class PaintSpawner : MonoBehaviour
 			//scroll up
 			if (touchpadAxis.y - axisStartPoint.y > scrollSpeed)
             {
-                print("scroll up");
                 selectMat(1);              
                 axisStartPoint = touchpadAxis;
             }
@@ -77,7 +78,6 @@ public class PaintSpawner : MonoBehaviour
 			//scroll down
 			if (touchpadAxis.y - axisStartPoint.y < -scrollSpeed)
 			{
-				print("scroll down");
                 selectMat(-1);
                 axisStartPoint = touchpadAxis;
 			}
