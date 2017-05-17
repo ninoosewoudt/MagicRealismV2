@@ -7,14 +7,19 @@ public class Splash : MonoBehaviour
 {
     [SerializeField]
     private GameObject splash;
-    
-    public void spawn(Vector3 spawnPosition)
+
+    public void spawn(Vector3 spawnPosition, Material mat = null)
     {
         
         if (splash != null)
         {           
             var newSplash = Instantiate(splash, spawnPosition,Quaternion.identity) as GameObject;
-            Destroy(newSplash, newSplash.GetComponent<ParticleSystem>().duration + 0.3f);
+
+            if(mat != null)
+            newSplash.GetComponent<ParticleSystemRenderer>().material = mat;
+
+            ParticleSystem particle = newSplash.GetComponent<ParticleSystem>();
+            Destroy(newSplash, particle.duration + 0.3f);
         }
 
         else

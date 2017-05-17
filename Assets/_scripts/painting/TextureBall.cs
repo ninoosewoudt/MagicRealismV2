@@ -31,15 +31,9 @@ public class TextureBall : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        switch (other.gameObject.tag)
+        if (other.gameObject.tag == Tags.paintable)
         {
-		    case Tags.paintable:
-                changeOtherMaterial(other.gameObject.GetComponent<Renderer>());
-            break;
-
-            case Tags.materialButton:
-                //changeThisMaterial(other.gameObject.GetComponent<Renderer>());
-            break;
+            changeOtherMaterial(other.gameObject.GetComponent<Renderer>());
         }
     }
 
@@ -53,7 +47,7 @@ public class TextureBall : MonoBehaviour
             }
         }
 
-        splash.spawn(this.transform.position);
+        splash.spawn(this.transform.position,thisRenderer.material);
         rend.material = thisRenderer.material;
         destroyBall();
     }
