@@ -47,7 +47,7 @@ public class PaintSpawner : MonoBehaviour
 			neweBall = Instantiate (PaintPrefab, new Vector3(0,0,0) , Quaternion.identity);
 			neweBall.transform.position = player.rightHand.transform.position;
             materialRegulator = neweBall.GetComponent<TextureBall>();
-			materialRegulator.changeThisMaterial (materials[Random.Range (0,materials.Length)]);
+			materialRegulator.changeThisMaterial (materials[currentSelectedMat]);
         }
 
         checkTouchpad();     

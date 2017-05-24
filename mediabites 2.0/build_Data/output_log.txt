@@ -1,0 +1,208 @@
+Initialize engine version: 5.5.1f1 (88d00a7498cd)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 1080 (ID=0x1be0)
+    Vendor:   NVIDIA
+    VRAM:     8110 MB
+    Driver:   22.21.13.8178
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Practoraat\Documents\GitHub\MagicRealismV2\mediabites 2.0\build_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Practoraat\Documents\GitHub\MagicRealismV2\mediabites 2.0\build_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Practoraat\Documents\GitHub\MagicRealismV2\mediabites 2.0\build_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\Practoraat\Documents\GitHub\MagicRealismV2\mediabites 2.0\build_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\Practoraat\Documents\GitHub\MagicRealismV2\mediabites 2.0\build_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Practoraat\Documents\GitHub\MagicRealismV2\mediabites 2.0\build_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Practoraat\Documents\GitHub\MagicRealismV2\mediabites 2.0\build_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Practoraat\Documents\GitHub\MagicRealismV2\mediabites 2.0\build_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Practoraat\Documents\GitHub\MagicRealismV2\mediabites 2.0\build_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Practoraat\Documents\GitHub\MagicRealismV2\mediabites 2.0\build_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\Practoraat\Documents\GitHub\MagicRealismV2\mediabites 2.0\build_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
+Loading C:\Users\Practoraat\Documents\GitHub\MagicRealismV2\mediabites 2.0\build_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
+Platform assembly: C:\Users\Practoraat\Documents\GitHub\MagicRealismV2\mediabites 2.0\build_Data\Managed\UnityEngine.VR.dll (this message is harmless)
+Loading C:\Users\Practoraat\Documents\GitHub\MagicRealismV2\mediabites 2.0\build_Data\Managed\UnityEngine.VR.dll into Unity Child Domain
+- Completed reload, in  0.114 seconds
+Platform assembly: C:\Users\Practoraat\Documents\GitHub\MagicRealismV2\mediabites 2.0\build_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Practoraat\Documents\GitHub\MagicRealismV2\mediabites 2.0\build_Data\Managed\System.dll (this message is harmless)
+<RI> Initializing input.
+<RI> Input initialized.
+desktop: 1920x1080 60Hz; virtual: 9600x3118 at -6400,-1318
+<RI> Initialized touch support.
+OpenVR initialized!
+ 
+(Filename:  Line: 381)
+
+UnloadTime: 0.391173 ms
+Connected to lighthouse:LHR-0BD4F691
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+ChaperoneInfo initialized. Roomscale play area 2.50m x 1.90m
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: f54 -> priority: 1 
+  Thread -> id: 2d88 -> priority: 1 
+Non-convex MeshCollider with non-kinematic Rigidbody is no longer supported in Unity 5.
+If you want to use a non-convex mesh either make the Rigidbody kinematic or remove the Rigidbody component. Scene hierarchy path "pvbasket", Mesh asset path "" Mesh name "hoop"
+ 
+(Filename:  Line: 0)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.398768 ms
+
+Unloading 291 unused Assets to reduce memory usage. Loaded Objects now: 923.
+Total: 0.629804 ms (FindLiveObjects: 0.049840 ms CreateObjectMapping: 0.024920 ms MarkObjects: 0.378713 ms  DeleteObjects: 0.141970 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.368140 ms
+
+Unloading 194 unused Assets to reduce memory usage. Loaded Objects now: 923.
+Total: 0.482170 ms (FindLiveObjects: 0.055504 ms CreateObjectMapping: 0.013970 ms MarkObjects: 0.347374 ms  DeleteObjects: 0.064188 ms)
+
+Non-convex MeshCollider with non-kinematic Rigidbody is no longer supported in Unity 5.
+If you want to use a non-convex mesh either make the Rigidbody kinematic or remove the Rigidbody component. Scene hierarchy path "pvbasket", Mesh asset path "" Mesh name "hoop"
+ 
+(Filename:  Line: 0)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.658877 ms
+
+Unloading 301 unused Assets to reduce memory usage. Loaded Objects now: 1021.
+Total: 0.654346 ms (FindLiveObjects: 0.050595 ms CreateObjectMapping: 0.026053 ms MarkObjects: 0.428553 ms  DeleteObjects: 0.148389 ms)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Valve.VR.InteractionSystem.ControllerButtonHints.HideAllText () [0x00000] in <filename unknown>:0 
+  at Valve.VR.InteractionSystem.ControllerButtonHints.OnParentHandInputFocusLost () [0x00000] in <filename unknown>:0 
+UnityEngine.Component:BroadcastMessage(String, Object, SendMessageOptions)
+UnityEngine.Component:BroadcastMessage(String, SendMessageOptions)
+Valve.VR.InteractionSystem.Hand:OnInputFocus(Boolean)
+UnityEngine.Events.InvokableCall`1:Invoke(Object[])
+UnityEngine.Events.InvokableCallList:Invoke(Object[])
+UnityEngine.Events.UnityEventBase:Invoke(Object[])
+UnityEngine.Events.UnityEvent`1:Invoke(Boolean)
+Event`1:Send(Boolean)
+SteamVR_Render:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Valve.VR.InteractionSystem.ControllerButtonHints.HideAllText () [0x00000] in <filename unknown>:0 
+  at Valve.VR.InteractionSystem.ControllerButtonHints.OnParentHandInputFocusLost () [0x00000] in <filename unknown>:0 
+UnityEngine.Component:BroadcastMessage(String, Object, SendMessageOptions)
+UnityEngine.Component:BroadcastMessage(String, SendMessageOptions)
+Valve.VR.InteractionSystem.Hand:OnInputFocus(Boolean)
+UnityEngine.Events.InvokableCall`1:Invoke(Object[])
+UnityEngine.Events.InvokableCallList:Invoke(Object[])
+UnityEngine.Events.UnityEventBase:Invoke(Object[])
+UnityEngine.Events.UnityEvent`1:Invoke(Boolean)
+Event`1:Send(Boolean)
+SteamVR_Render:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Valve.VR.InteractionSystem.ControllerButtonHints.HideAllText () [0x00000] in <filename unknown>:0 
+  at Valve.VR.InteractionSystem.ControllerButtonHints.OnParentHandInputFocusLost () [0x00000] in <filename unknown>:0 
+UnityEngine.Component:BroadcastMessage(String, Object, SendMessageOptions)
+UnityEngine.Component:BroadcastMessage(String, SendMessageOptions)
+Valve.VR.InteractionSystem.Hand:OnInputFocus(Boolean)
+UnityEngine.Events.InvokableCall`1:Invoke(Object[])
+UnityEngine.Events.InvokableCallList:Invoke(Object[])
+UnityEngine.Events.UnityEventBase:Invoke(Object[])
+UnityEngine.Events.UnityEvent`1:Invoke(Boolean)
+Event`1:Send(Boolean)
+SteamVR_Render:Update()
+ 
+(Filename:  Line: -1)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.747064 ms
+
+Unloading 377 unused Assets to reduce memory usage. Loaded Objects now: 1117.
+Total: 0.888069 ms (FindLiveObjects: 0.055881 ms CreateObjectMapping: 0.032849 ms MarkObjects: 0.542205 ms  DeleteObjects: 0.256377 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.778193 ms
+
+Unloading 429 unused Assets to reduce memory usage. Loaded Objects now: 1213.
+Total: 0.914122 ms (FindLiveObjects: 0.057392 ms CreateObjectMapping: 0.024165 ms MarkObjects: 0.542960 ms  DeleteObjects: 0.289226 ms)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Valve.VR.InteractionSystem.ControllerButtonHints.HideAllText () [0x00000] in <filename unknown>:0 
+  at Valve.VR.InteractionSystem.ControllerButtonHints.OnParentHandInputFocusLost () [0x00000] in <filename unknown>:0 
+UnityEngine.Component:BroadcastMessage(String, Object, SendMessageOptions)
+UnityEngine.Component:BroadcastMessage(String, SendMessageOptions)
+Valve.VR.InteractionSystem.Hand:OnInputFocus(Boolean)
+UnityEngine.Events.InvokableCall`1:Invoke(Object[])
+UnityEngine.Events.InvokableCallList:Invoke(Object[])
+UnityEngine.Events.UnityEventBase:Invoke(Object[])
+UnityEngine.Events.UnityEvent`1:Invoke(Boolean)
+Event`1:Send(Boolean)
+SteamVR_Render:Update()
+ 
+(Filename:  Line: -1)
+
+Non-convex MeshCollider with non-kinematic Rigidbody is no longer supported in Unity 5.
+If you want to use a non-convex mesh either make the Rigidbody kinematic or remove the Rigidbody component. Scene hierarchy path "pvbasket", Mesh asset path "" Mesh name "hoop"
+ 
+(Filename:  Line: 0)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.858995 ms
+
+Unloading 284 unused Assets to reduce memory usage. Loaded Objects now: 1309.
+Total: 0.839361 ms (FindLiveObjects: 0.060412 ms CreateObjectMapping: 0.028318 ms MarkObjects: 0.604506 ms  DeleteObjects: 0.145368 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 3.415215 ms
+
+Unloading 476 unused Assets to reduce memory usage. Loaded Objects now: 1405.
+Total: 1.150487 ms (FindLiveObjects: 0.076271 ms CreateObjectMapping: 0.038513 ms MarkObjects: 0.646795 ms  DeleteObjects: 0.388152 ms)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Valve.VR.InteractionSystem.ControllerButtonHints.HideAllText () [0x00000] in <filename unknown>:0 
+  at Valve.VR.InteractionSystem.ControllerButtonHints.OnParentHandInputFocusLost () [0x00000] in <filename unknown>:0 
+UnityEngine.Component:BroadcastMessage(String, Object, SendMessageOptions)
+UnityEngine.Component:BroadcastMessage(String, SendMessageOptions)
+Valve.VR.InteractionSystem.Hand:OnInputFocus(Boolean)
+UnityEngine.Events.InvokableCall`1:Invoke(Object[])
+UnityEngine.Events.InvokableCallList:Invoke(Object[])
+UnityEngine.Events.UnityEventBase:Invoke(Object[])
+UnityEngine.Events.UnityEvent`1:Invoke(Boolean)
+Event`1:Send(Boolean)
+SteamVR_Render:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Valve.VR.InteractionSystem.ControllerButtonHints.HideAllText () [0x00000] in <filename unknown>:0 
+  at Valve.VR.InteractionSystem.ControllerButtonHints.OnParentHandInputFocusLost () [0x00000] in <filename unknown>:0 
+UnityEngine.Component:BroadcastMessage(String, Object, SendMessageOptions)
+UnityEngine.Component:BroadcastMessage(String, SendMessageOptions)
+Valve.VR.InteractionSystem.Hand:OnInputFocus(Boolean)
+UnityEngine.Events.InvokableCall`1:Invoke(Object[])
+UnityEngine.Events.InvokableCallList:Invoke(Object[])
+UnityEngine.Events.UnityEventBase:Invoke(Object[])
+UnityEngine.Events.UnityEvent`1:Invoke(Boolean)
+Event`1:Send(Boolean)
+SteamVR_Render:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Valve.VR.InteractionSystem.ControllerButtonHints.HideAllText () [0x00000] in <filename unknown>:0 
+  at Valve.VR.InteractionSystem.ControllerButtonHints.OnParentHandInputFocusLost () [0x00000] in <filename unknown>:0 
+UnityEngine.Component:BroadcastMessage(String, Object, SendMessageOptions)
+UnityEngine.Component:BroadcastMessage(String, SendMessageOptions)
+Valve.VR.InteractionSystem.Hand:OnInputFocus(Boolean)
+UnityEngine.Events.InvokableCall`1:Invoke(Object[])
+UnityEngine.Events.InvokableCallList:Invoke(Object[])
+UnityEngine.Events.UnityEventBase:Invoke(Object[])
+UnityEngine.Events.UnityEvent`1:Invoke(Boolean)
+Event`1:Send(Boolean)
+SteamVR_Render:Update()
+ 
+(Filename:  Line: -1)
+
