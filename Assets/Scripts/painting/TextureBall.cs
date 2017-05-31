@@ -2,12 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Valve.VR.InteractionSystem;
 
 public class TextureBall : MonoBehaviour
 {
     private Renderer thisRenderer;
-    private Player player; 
 
     private GameObject gameManager;
     private Splash splash;
@@ -15,7 +13,6 @@ public class TextureBall : MonoBehaviour
 	void Awake()
     {
         thisRenderer = GetComponent<Renderer>();
-        player = Player.instance;
 
         gameManager = GameObject.FindGameObjectWithTag(Tags.gamemanager);
 
@@ -39,15 +36,7 @@ public class TextureBall : MonoBehaviour
 
     private void changeOtherMaterial(Renderer rend)
     {
-        for(int i = 0; i <= player.handCount -1; i++)
-        {
-            if (player.GetHand(i).currentAttachedObject == this.gameObject)
-            {
-                player.GetHand(i).DetachObject(this.gameObject);
-            }
-        }
-
-        splash.spawn(this.transform.position,thisRenderer.material);
+      
         rend.material = thisRenderer.material;
         destroyBall();
     }
@@ -59,6 +48,10 @@ public class TextureBall : MonoBehaviour
 
     private void destroyBall()
     {
+        splash.spawn(this.transform.position, thisRenderer.material);
+
+        Detach.fromHand(this.gameObject);
+
         Destroy(this.gameObject);
     }
 }

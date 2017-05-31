@@ -3,9 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RealObjectSize : MonoBehaviour
+public static class RealObjectSize
 {
-    public bool realSizeCheck(Vector3 boundSize,Vector3 sizeInMeters)
+    public static bool realSizeCheck(Vector3 boundSize,Vector3 sizeInMeters)
     {
         if (sizeInMeters == boundSize)
             return true;
@@ -13,9 +13,9 @@ public class RealObjectSize : MonoBehaviour
             return false;
     }
 
-    private Vector3 fitInToSize(GameObject gameObj, Vector3 sizeInMeters)
+    public static Vector3 fitInToSize(GameObject gameObj, Vector3 sizeInMeters)
     {
-        Vector3 boundSize = this.boundSize(gameObj);
+        Vector3 boundSize = gameObj.GetComponent<MeshRenderer>().bounds.size;
 
         float biggest = Mathf.Max(boundSize.x, boundSize.y, boundSize.z);
         float smallest = Mathf.Min(sizeInMeters.x, sizeInMeters.y, sizeInMeters.z);
@@ -30,9 +30,9 @@ public class RealObjectSize : MonoBehaviour
 
     }
 
-    public Vector3 convertObjectSize(GameObject gameObj, Vector3 sizeInMeters)
+    public static Vector3 convertObjectSize(GameObject gameObj, Vector3 sizeInMeters)
     {
-        Vector3 boundSize = this.boundSize(gameObj);
+        Vector3 boundSize = gameObj.GetComponent<MeshRenderer>().bounds.size;
 
         if (realSizeCheck(boundSize, sizeInMeters) == false)
         {
@@ -45,7 +45,7 @@ public class RealObjectSize : MonoBehaviour
         return gameObj.transform.localScale;   
     }
 
-    public Vector3 boundSize(GameObject gameObj)
+    public static Vector3 boundSize(GameObject gameObj)
     {
         Vector3 size = gameObj.GetComponent<MeshFilter>().sharedMesh.bounds.size;
         return size;

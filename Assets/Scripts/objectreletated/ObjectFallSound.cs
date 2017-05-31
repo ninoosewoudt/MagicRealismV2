@@ -28,7 +28,7 @@ public class ObjectFallSound : MonoBehaviour
             if (soundVolume > 1)
                 soundVolume = 1;
 
-            audioSource.volume = 1;
+            audioSource.volume = soundVolume;
             audioSource.Play();
         }
     }
