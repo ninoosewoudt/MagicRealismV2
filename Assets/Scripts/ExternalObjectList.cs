@@ -18,7 +18,7 @@ public class ExternalObjectList : MonoBehaviour {
 
 	void Start () {
 		if (_path == null) {
-			Debug.LogError ("not external object folder found");
+			Debug.LogError ("no external object folder found");
 		}
 		GameObjects = new Dictionary<string, List<GameObject>> ();
 		foreach (var fileindir in Directory.GetFiles (_path, "*.*", SearchOption.AllDirectories)) {
