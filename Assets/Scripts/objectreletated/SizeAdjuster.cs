@@ -8,8 +8,8 @@ public class SizeAdjuster : MonoBehaviour
     private enum sizeState
     {
         idle = 0,
-        shrinking = 1,
-        growing
+        startChanging = 1,
+        changing = 2
     }
 
     [SerializeField]
@@ -36,59 +36,35 @@ public class SizeAdjuster : MonoBehaviour
     public void changeSize(Vector3 size)
     {
         newSize = RealObjectSize.fitInToSize(gameObject, size);
+        state = sizeState.startChanging;
     }
 
     public void oldsize()
     {
         newSize = mySize;
+        state = sizeState.startChanging;
     }
 
     private IEnumerator sizeChange()
     {
         while (true)
         {
-
-            if(state == sizeState.idle && lastState != sizeState.idle)
+            if(state == sizeState.idle)
+            {
+                
+            }
+            else if(state == sizeState.startChanging)
             {
                 resetStep();
+                state = sizeState.changing;
             }
-            else if(state == sizeState.growing && lastState != sizeState.growing)
+            else if(state == sizeState.changing)
             {
-                resetStep();
+                setStep();
+                checkIfDone();             
             }
-            else if(state == sizeState.shrinking && lastState != sizeState.shrinking)
-            {
-                resetStep();
-            }
-
-            setStep();
-
-            checkIfDone();
 
             yield return new WaitForSeconds(0.033f);
-
-            ////////////////////////////////////////////////
-            /*if (state == sizeState.growing)
-            {
-                yield return new WaitForSeconds(0.033f);
-            }
-            else if (state == sizeState.idle)
-            {
-                state = sizeState.shrinking;
-                currentstep = 0;
-            }
-            print(state);
-
-            currentstep += changeStep;
-
-            gameObject.transform.localScale = Vector3.Lerp(gameObject.transform.localScale, newSize, currentstep);
-
-            if (newSize == gameObject.transform.localScale)
-            {
-                state = sizeState.idle;
-            }*/
-
-            
         }        
     }
 
