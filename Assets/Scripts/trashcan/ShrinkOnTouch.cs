@@ -20,7 +20,7 @@ public class ShrinkOnTouch : MonoBehaviour
     {
         if (other.CompareTag("Paintable") && other.gameObject.GetComponent<SizeAdjuster>() != null)
         {
-            //other.gameObject.GetComponent<SizeAdjuster>().oldsize();
+            other.gameObject.GetComponent<SizeAdjuster>().oldsize();
         }
     }
 
