@@ -13,30 +13,45 @@ public class SizeAdjuster : MonoBehaviour
     }
 
     [SerializeField]
-    private float changeTime = 2f;
+    private float changeTime = 3f;
     private float changeStep,currentstep;
 
     private IEnumerator coroutine;
 
-    private Vector3 mySize;
+    public Vector3 mySize;
 
     private sizeState state;
     private sizeState lastState;
 
     Vector3 newSize;
 
-    private void Start()
+    private void Awake()
     {
         state = sizeState.idle;
-        mySize = gameObject.transform.localScale;
+
+        setMySize();
+
         changeStep = 1f / (changeTime / 0.033f);
         StartCoroutine(sizeChange());
+    }
+
+    private void setMySize()
+    {
+        if (mySize == Vector3.zero)
+        {
+            mySize = gameObject.transform.localScale;
+        }
     }
 
     public void changeSize(Vector3 size)
     {
         newSize = RealObjectSize.fitInToSize(gameObject, size);
-        state = sizeState.startChanging;
+        state = sizeState.startChanging;    
+    }
+
+    public void instantSizeChange(Vector3 size)
+    {
+        this.gameObject.transform.localScale = RealObjectSize.fitInToSize(gameObject, size);
     }
 
     public void oldsize()
