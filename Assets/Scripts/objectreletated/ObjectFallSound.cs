@@ -5,10 +5,14 @@ using UnityEngine;
 
 public class ObjectFallSound : MonoBehaviour
 {
+	[SerializeField]
     private AudioSource audioSource;
 
     private void Start()
     {
+		if (audioSource != null) {
+			return;
+		}
         if (this.GetComponent<AudioSource>() != null)
         {
             audioSource = this.GetComponent<AudioSource>();
