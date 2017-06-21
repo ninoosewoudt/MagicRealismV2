@@ -13,6 +13,8 @@ public class Scroll : MonoBehaviour
 
     private bool gripped = false;
 
+    private float lastY;
+
 
 	void Start ()
     {
@@ -33,27 +35,38 @@ public class Scroll : MonoBehaviour
     private void checkGriped()
     {
         if(player.leftHand != null)
-        if (player.leftHand.controller.GetPressDown(SteamVR_Controller.ButtonMask.Grip))
-        {
-            gripedHand = player.leftHand;
-            gripped = true;
-            return;
-        }
+            if (player.leftHand.controller.GetPressDown(SteamVR_Controller.ButtonMask.Grip))
+            {
+                if (!gripped)
+                {
+                    gripedHand = player.leftHand;
+                    lastY = gripedHand.transform.position.y;
+                    gripped = true;                  
+                }
+                return;
+            }
 
         if (player.rightHand != null)
-        if (player.rightHand.controller.GetPressDown(SteamVR_Controller.ButtonMask.Grip))
-        {
-            gripedHand = player.rightHand;
-            gripped = true;
-            return;
-        }
+            if (player.rightHand.controller.GetPressDown(SteamVR_Controller.ButtonMask.Grip))
+            {
+                if (!gripped)
+                {
+                    gripedHand = player.rightHand;
+                    lastY = gripedHand.transform.position.y;
+                    gripped = true;
+                }               
+                return;
+            }
 
         gripped = false;
     }
 
     private void scrollWithController()
     {
-
+        float newY = gripedHand.transform.position.y;
+        tubeMenu.moveObjects(newY - lastY);
+        lastY = newY;
+        
     }
 
 
