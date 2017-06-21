@@ -15,6 +15,9 @@ public class Scroll : MonoBehaviour
 
     private float lastY;
 
+	[SerializeField]
+	private float scrollSpeedMultiplier = 1.3f;
+
 
 	void Start ()
     {
@@ -26,6 +29,7 @@ public class Scroll : MonoBehaviour
     {
         checkGriped();
 
+
         if (gripped)
         {
             scrollWithController();
@@ -34,9 +38,12 @@ public class Scroll : MonoBehaviour
 
     private void checkGriped()
     {
-        if(player.leftHand != null)
+		if (player.leftHand == null && player.rightHand == null)
+			return;
+		
             if (player.leftHand.controller.GetPressDown(SteamVR_Controller.ButtonMask.Grip))
             {
+				print ("grip");
                 if (!gripped)
                 {
                     gripedHand = player.leftHand;
@@ -45,8 +52,7 @@ public class Scroll : MonoBehaviour
                 }
                 return;
             }
-
-        if (player.rightHand != null)
+			
             if (player.rightHand.controller.GetPressDown(SteamVR_Controller.ButtonMask.Grip))
             {
                 if (!gripped)
@@ -58,13 +64,23 @@ public class Scroll : MonoBehaviour
                 return;
             }
 
-        gripped = false;
+		if (player.leftHand.controller.GetPressUp(SteamVR_Controller.ButtonMask.Grip))
+		{
+			gripped = false;
+			return;
+		}
+
+		if (player.rightHand.controller.GetPressUp(SteamVR_Controller.ButtonMask.Grip))
+		{
+			gripped = false;
+			return;
+		}
     }
 
     private void scrollWithController()
     {
         float newY = gripedHand.transform.position.y;
-        tubeMenu.moveObjects(newY - lastY);
+		tubeMenu.moveObjects((newY - lastY) * scrollSpeedMultiplier);
         lastY = newY;
         
     }
