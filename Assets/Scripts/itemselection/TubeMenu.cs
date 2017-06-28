@@ -64,6 +64,8 @@ public class TubeMenu : MonoBehaviour
         // verandert grote
         newobj.gameObject.GetComponent<SizeAdjuster>().instantSizeChange(smalSize);
 
+        newobj.transform.parent = this.gameObject.transform;
+
         spawendObject.Add(newobj);
 
         if(ofset > 0)
