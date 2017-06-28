@@ -14,7 +14,7 @@ public class SpawnMenu : MonoBehaviour
     private GameObject trashcan,tube,floor;
 
     [SerializeField]
-    private float tubeSpawnHeight = 1;
+    private float tubeSpawnHeight = 2;
 
     [SerializeField]
     private float lineWith = 0.04f;
@@ -22,7 +22,7 @@ public class SpawnMenu : MonoBehaviour
     [SerializeField]
     private Color goodColor,badColor;
 
-    private bool canSpawn = false;
+	private bool canSpawn = false,pressed = false;
 
     ///voor test
     [SerializeField]
@@ -44,10 +44,12 @@ public class SpawnMenu : MonoBehaviour
 	
 	void Update ()
     {
+        /*
         ///testLine
         lineRend.SetPosition(0, pointer.gameObject.transform.position - new Vector3(0,0.5f,0));
         lineRend.SetPosition(1, hand.gameObject.transform.position);
         ///
+		*/
 
 
         // als menu knop word ingedrukt
@@ -57,12 +59,25 @@ public class SpawnMenu : MonoBehaviour
         }
         else if(player.leftHand.controller.GetPressDown(SteamVR_Controller.ButtonMask.ApplicationMenu))
         {
-            checkFloorHit();
+        	lineRend.enabled = true;
+			pressed = true;
         }
-        else if (canSpawn && player.leftHand.controller.GetPressUp(SteamVR_Controller.ButtonMask.ApplicationMenu))
+        else if (player.leftHand.controller.GetPressUp(SteamVR_Controller.ButtonMask.ApplicationMenu))
         {
-            spawnObjects(checkFloorHit());
+        	lineRend.enabled = false;
+        	
+        	if(canSpawn)
+        	{
+        		pressed = false;
+            	spawnObjects(checkFloorHit());
+        	}
+			
         }
+
+		if(pressed)
+		{
+			checkFloorHit ();	
+		}
 	}
 
     private void lineConvig()
@@ -75,29 +90,35 @@ public class SpawnMenu : MonoBehaviour
     private void spawnObjects(Vector3 pos)
     {
         Vector3 rot = player.leftHand.transform.eulerAngles;
-        rot = new Vector3(rot.x, rot.y + 180, rot.z);
+        rot = new Vector3(0,rot.y + 180, 0);
 
-        Instantiate(trashcan, new Vector3(pos.x -0.2f, 0, pos.z), Quaternion.Euler(rot));
+        Instantiate(trashcan, new Vector3(pos.x -0.4f, 0, pos.z), Quaternion.Euler(rot));
 
-        Instantiate(trashcan, new Vector3(pos.x + 0.2f, tubeSpawnHeight, pos.z), Quaternion.Euler(rot));
+        Instantiate(tube, new Vector3(pos.x + 0.4f, tubeSpawnHeight, pos.z), Quaternion.Euler(rot));
     }
 
     private void drawLine(Color color)
     {
         lineRend.material.color = color;
         lineRend.SetPosition(0, player.leftHand.transform.position);
-        lineRend.SetPosition(1, player.leftHand.transform.forward * 10);
+        lineRend.SetPosition(1, player.leftHand.transform.forward * 20);
     }
 
     private Vector3 checkFloorHit()
     {
         RaycastHit hit;
+        
+        Debug.DrawLine (player.leftHand.transform.position, player.leftHand.transform.forward*20 ,Color.red);
         /////////////////////////////////////////////////////of Vector3.forward
-        if (Physics.Raycast(player.leftHand.transform.position, -Vector3.up, out hit) && hit.transform.gameObject == floor)
+        if (Physics.Raycast(player.leftHand.transform.position, player.leftHand.transform.forward, out hit))
         {
-            canSpawn = true;
-            drawLine(goodColor);
-            return hit.point;
+			print (hit.transform.gameObject.name);
+        	if(hit.transform.gameObject.name == floor.name)
+        	{	
+        		canSpawn = true;
+            	drawLine(goodColor);
+            	return hit.point;
+        	}       
         }
 
         canSpawn = false;
