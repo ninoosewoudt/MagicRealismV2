@@ -11,17 +11,22 @@ public class SpawnMenu : MonoBehaviour
     private LineRenderer lineRend;
 
     [SerializeField]
+    private GameObject prullenbak,buis;
+
+    [SerializeField]
     private float lineWith = 0.04f;
 
     [SerializeField]
     private Color goodColor,badColor;
     private Color currentColor;
 
+    ///voor test
     [SerializeField]
     private GameObject pointer;
 
     [SerializeField]
     private GameObject hand;
+    ///
 
     void Awake()
     {
