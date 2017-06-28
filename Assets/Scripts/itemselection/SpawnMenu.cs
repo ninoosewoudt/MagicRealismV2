@@ -93,7 +93,7 @@ public class SpawnMenu : MonoBehaviour
     {
         RaycastHit hit;
         /////////////////////////////////////////////////////of Vector3.forward
-        if (Physics.Raycast(player.leftHand.transform.position, -Vector3.up, out hit ))
+        if (Physics.Raycast(player.leftHand.transform.position, -Vector3.up, out hit) && hit.transform.gameObject == floor)
         {
             canSpawn = true;
             drawLine(goodColor);
