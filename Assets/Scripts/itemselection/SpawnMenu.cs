@@ -38,6 +38,8 @@ public class SpawnMenu : MonoBehaviour
     {
         player = Player.instance;
 
+        menu = new GameObject();
+
         if(GetComponent<LineRenderer>() == null)
         lineConvig();
 
