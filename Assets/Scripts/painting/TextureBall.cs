@@ -36,8 +36,12 @@ public class TextureBall : MonoBehaviour
 
     private void changeOtherMaterial(Renderer rend)
     {
-      
+        print(rend.material.mainTextureScale);
+        Vector2 tile = rend.material.mainTextureScale;
+
         rend.material = thisRenderer.material;
+
+        rend.material.mainTextureScale = tile;
         destroyBall();
     }
 

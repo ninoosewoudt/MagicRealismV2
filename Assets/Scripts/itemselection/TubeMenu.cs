@@ -147,7 +147,7 @@ public class TubeMenu : MonoBehaviour
                 //create clone
                 GameObject obj = Instantiate(spawendObject[i], spawendObject[i].transform.position, Quaternion.identity);
                 obj.GetComponent<SizeAdjuster>().mySize = spawendObject[i].GetComponent<SizeAdjuster>().mySize;
-                obj.transform.parent = this.gameObject.transform;
+                obj.transform.parent = this.gameObject.transform;   
                 //adjust oldone
                 spawendObject[i].GetComponent<Collider>().isTrigger = false;
                 spawendObject[i].GetComponent<SizeAdjuster>().oldsize();
