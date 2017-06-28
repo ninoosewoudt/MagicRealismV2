@@ -13,6 +13,8 @@ public class SpawnMenu : MonoBehaviour
     [SerializeField]
     private GameObject trashcan,tube,floor;
 
+    private GameObject menu, oldMenu;
+
     [SerializeField]
     private float tubeSpawnHeight = 2;
 
@@ -89,12 +91,23 @@ public class SpawnMenu : MonoBehaviour
 
     private void spawnObjects(Vector3 pos)
     {
+        Destroy(oldMenu);
+
         Vector3 rot = player.leftHand.transform.eulerAngles;
         rot = new Vector3(0,rot.y + 180, 0);
 
-        Instantiate(trashcan, new Vector3(pos.x -0.4f, 0, pos.z), Quaternion.Euler(rot));
+        GameObject newMenu = Instantiate(trashcan, new Vector3(pos.x, 0, pos.z), Quaternion.identity);
 
-        Instantiate(tube, new Vector3(pos.x + 0.4f, tubeSpawnHeight, pos.z), Quaternion.Euler(rot));
+        GameObject newTrah = Instantiate(trashcan, new Vector3(pos.x -0.4f, 0, pos.z), Quaternion.identity);
+
+        GameObject newTube = Instantiate(tube, new Vector3(pos.x + 0.4f, tubeSpawnHeight, pos.z), Quaternion.identity);
+
+        newTrah.transform.parent = newMenu.transform;
+        newTube.transform.parent = newMenu.transform;
+
+        newMenu.transform.localRotation = Quaternion.Euler(rot);
+
+        oldMenu = newMenu;
     }
 
     private void drawLine(Color color)
