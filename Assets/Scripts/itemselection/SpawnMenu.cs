@@ -96,7 +96,7 @@ public class SpawnMenu : MonoBehaviour
         Vector3 rot = player.leftHand.transform.eulerAngles;
         rot = new Vector3(0,rot.y + 180, 0);
 
-        GameObject newMenu = Instantiate(trashcan, new Vector3(pos.x, 0, pos.z), Quaternion.identity);
+        GameObject newMenu = Instantiate(menu, new Vector3(pos.x, 0, pos.z), Quaternion.identity);
 
         GameObject newTrah = Instantiate(trashcan, new Vector3(pos.x -0.4f, 0, pos.z), Quaternion.identity);
 
