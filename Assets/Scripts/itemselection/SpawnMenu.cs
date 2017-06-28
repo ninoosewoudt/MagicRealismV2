@@ -57,7 +57,7 @@ public class SpawnMenu : MonoBehaviour
         }
         else if(player.leftHand.controller.GetPressDown(SteamVR_Controller.ButtonMask.ApplicationMenu))
         {
-            drawLine();
+            checkFloorHit();
         }
         else if (canSpawn && player.leftHand.controller.GetPressUp(SteamVR_Controller.ButtonMask.ApplicationMenu))
         {
@@ -93,7 +93,7 @@ public class SpawnMenu : MonoBehaviour
     {
         RaycastHit hit;
         /////////////////////////////////////////////////////of Vector3.forward
-        if (Physics.Raycast(player.leftHand.transform.position, -Vector3.up, out hit))
+        if (Physics.Raycast(player.leftHand.transform.position, -Vector3.up, out hit ))
         {
             canSpawn = true;
             drawLine(goodColor);
