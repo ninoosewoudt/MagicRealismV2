@@ -13,35 +13,26 @@ public class TubeMenu : MonoBehaviour
     private Vector3 smalSize = new Vector3(0.5f, 0.5f, 0.5f);
 
     private GameObject[] objects;
-    private List<GameObject> spawendObject = new List<GameObject>();
+    private Dictionary<string, List<GameObject>> GameObjects;
+    private List<string> keyList;
+
+    private List<GameObject> spawendObjects = new List<GameObject>();
+    
     private Player player;
 
-    private int previousObject,nextObject,objectsCount;
+    private int previousObject,nextObject,objectsCount,categoryCount;
 
     private CurrentHoldingObjects currentHolding;
 
     void Start ()
     {
-        objects = Resources.LoadAll<GameObject>("interior");
-
-        if (objects.Length == 0)
-        {
-            Debug.LogError("no resources detected!! please make sure you have resources in the map Assets/Resources/interior");
-        }
+        listSetup();
 
         player = Player.instance;
 
         currentHolding = GameObject.Find("Player").GetComponent<CurrentHoldingObjects>();
 
-        objectsCount = objects.Length - 1;
-
-        previousObject = objects.Length - 4;
-
-        for (int i = 1; i <= 3; i++)
-        {
-            moveObjects(-spaceBetweenObjects);
-            spawnObject(spaceBetweenObjects, nextObject);           
-        }
+        newCetagory();
     }
 	
 	void Update()
@@ -56,7 +47,7 @@ public class TubeMenu : MonoBehaviour
     public void spawnObject(float ofset, int listNumber)
     {
         //spawn item
-        GameObject newobj = Instantiate(objects[listNumber],this.transform.position + new Vector3(0, ofset, 0),Quaternion.identity);
+        GameObject newobj = Instantiate(GameObjects[keyList[categoryCount]][listNumber],this.transform.position + new Vector3(0, ofset, 0),Quaternion.identity);
 
         //maak item een trigger
         newobj.GetComponent<Collider>().isTrigger = true;
@@ -66,7 +57,7 @@ public class TubeMenu : MonoBehaviour
 
         newobj.transform.parent = this.gameObject.transform;
 
-        spawendObject.Add(newobj);
+        spawendObjects.Add(newobj);
 
         if(ofset > 0)
         {
@@ -83,55 +74,55 @@ public class TubeMenu : MonoBehaviour
         nextObject += changeStep;
         previousObject += changeStep;
 
-        if (nextObject > objectsCount - 1)
+        if (nextObject > objectsCount)
         {
             nextObject = 0;
         }
         else if (nextObject < 0)
         {
-            nextObject = objectsCount - 1;
+            nextObject = objectsCount;
         }
 
-        if (previousObject > objectsCount - 1)
+        if (previousObject > objectsCount)
         {
             previousObject = 0;
         }
         else if (previousObject < 0)
         {
-            previousObject = objectsCount - 1;
+            previousObject = objectsCount;
         }
     }
 
     public void moveObjects(float y)
     {
-        for (int i = 0; i < spawendObject.Count; i++)
+        for (int i = 0; i < spawendObjects.Count; i++)
         {
-            spawendObject[i].transform.position += new Vector3(0, y, 0);
+            spawendObjects[i].transform.position += new Vector3(0, y, 0);
         }
     }
 
     public void checkObjectPostion()
     {
-        if (spawendObject.Count == 0)
+        if (spawendObjects.Count == 0)
         {
             return;
         }
 
-        for (int i = 0; i < spawendObject.Count; i++)
+        for (int i = 0; i < spawendObjects.Count; i++)
         {
             //checkt of object boven een bepaald hoogte zit
-            if (spawendObject[i].transform.position.y > this.transform.position.y + 1)
+            if (spawendObjects[i].transform.position.y > this.transform.position.y + 1)
             {
-                Destroy(spawendObject[i]);
-                spawendObject.Remove(spawendObject[i]);
+                Destroy(spawendObjects[i]);
+                spawendObjects.Remove(spawendObjects[i]);
                 spawnObject(-spaceBetweenObjects, nextObject);
             }
 
             //checkt of object onder een bepaald hoogte zit
-            if (spawendObject[i].transform.position.y < this.transform.position.y - 1)
+            if (spawendObjects[i].transform.position.y < this.transform.position.y - 1)
             {
-                Destroy(spawendObject[i]);
-                spawendObject.Remove(spawendObject[i]);
+                Destroy(spawendObjects[i]);
+                spawendObjects.Remove(spawendObjects[i]);
                 spawnObject(spaceBetweenObjects, previousObject);
             }
         }
@@ -140,22 +131,76 @@ public class TubeMenu : MonoBehaviour
     //check if hand is holding one of the game object
     private void checkIfHolding()
     {
-        for (int i = 0; i < spawendObject.Count; i++)
+        for (int i = 0; i < spawendObjects.Count; i++)
         {
-            if (currentHolding.checkIfAteched(spawendObject[i]))
+            if (currentHolding.checkIfAteched(spawendObjects[i]))
             {
                 //create clone
-                GameObject obj = Instantiate(spawendObject[i], spawendObject[i].transform.position, Quaternion.identity);
-                obj.GetComponent<SizeAdjuster>().mySize = spawendObject[i].GetComponent<SizeAdjuster>().mySize;
+                GameObject obj = Instantiate(spawendObjects[i], spawendObjects[i].transform.position, Quaternion.identity);
+                obj.GetComponent<SizeAdjuster>().mySize = spawendObjects[i].GetComponent<SizeAdjuster>().mySize;
                 obj.transform.parent = this.gameObject.transform;   
                 //adjust oldone
-                spawendObject[i].GetComponent<Collider>().isTrigger = false;
-                spawendObject[i].GetComponent<SizeAdjuster>().oldsize();
+                spawendObjects[i].GetComponent<Collider>().isTrigger = false;
+                spawendObjects[i].GetComponent<SizeAdjuster>().oldsize();
                 
                 //replace old with new
-                spawendObject[i] = obj;
+                spawendObjects[i] = obj;
             }    
         }
+    }
+
+    private void switchCategory(int switchDirection)
+    {
+        categoryCount += switchDirection;
+
+        if(categoryCount > GameObjects.Count - 1)
+        {
+            categoryCount = 0;
+        }
+        else if(categoryCount < 0)
+        {
+            categoryCount = GameObjects.Count - 1;
+        }
+
+
+        cleanSpawendObjects();
+        newCetagory();
+    }
+
+    private void newCetagory()
+    {
+        objectsCount = GameObjects[keyList[categoryCount]].Count - 1;
+
+        nextObject = 0;
+        previousObject = objectsCount - 4;
+
+        if(previousObject <= 0)
+        {
+            previousObject = objectsCount;
+        }
+
+        for (int i = 1; i <= 3; i++)
+        {
+            moveObjects(-spaceBetweenObjects);
+            spawnObject(spaceBetweenObjects, nextObject);
+        }
+    }
+
+    private void cleanSpawendObjects()
+    {
+        spawendObjects.Clear();
+    }
+
+    private void listSetup()
+    {
+        objects = Resources.LoadAll<GameObject>("interior");
+
+        GameObjects = GameObject.FindObjectOfType<ExternalObjectList>().GameObjects;
+        GameObjects["test"] = new List<GameObject>(objects);
+
+        keyList = new List<string>(GameObjects.Keys);
+
+        categoryCount = GameObjects.Count - 1;
     }
 
 }

@@ -56,8 +56,8 @@ public class ExternalObjectList : MonoBehaviour {
 		go.GetComponent<MeshRenderer> ().material = _basicMaterial;
 		var coll = go.AddComponent <MeshCollider> ();
 		coll.convex = true;
-		//go.isStatic = true;
-		//Destroy (go);
+		go.isStatic = true;
+		Destroy (go);
 		return go;
 	}
 }
