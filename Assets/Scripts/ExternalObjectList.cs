@@ -15,7 +15,7 @@ public class ExternalObjectList : MonoBehaviour {
 	[SerializeField]
 	private Material _basicMaterial;
 
-	void Start () {
+	void Awake () {
 		Directory.CreateDirectory("./objects");
 		_path = "./objects";
 		if (_path == null) {

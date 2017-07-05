@@ -6,7 +6,8 @@ public class Trashcan : MonoBehaviour
 {
 	void OnTriggerEnter(Collider other)
     {
-		if (other.CompareTag("Paintable"))
+
+        if (other.CompareTag(Tags.paintable) && other.CompareTag(Tags.unpaintable))
         {
             print("destroy");
             Detach.fromHand(other.gameObject);
