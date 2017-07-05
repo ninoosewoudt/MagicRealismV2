@@ -1,0 +1,322 @@
+fileFormatVersion: 2
+guid: 5e7f803567f6a4700b21d585c3c7ffcf
+timeCreated: 1496236236
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Blades_1
+    100002: Blades_2
+    100004: Hull
+    100006: joint13
+    100008: joint14
+    100010: joint15
+    100012: joint16
+    100014: joint17
+    100016: joint18
+    100018: locator1
+    100020: locator2
+    100022: locator3
+    100024: pCylinder11
+    100026: pCylinder13
+    100028: pCylinder14
+    100030: pCylinder15
+    100032: //RootNode
+    400000: Blades_1
+    400002: Blades_2
+    400004: Hull
+    400006: joint13
+    400008: joint14
+    400010: joint15
+    400012: joint16
+    400014: joint17
+    400016: joint18
+    400018: locator1
+    400020: locator2
+    400022: locator3
+    400024: pCylinder11
+    400026: pCylinder13
+    400028: pCylinder14
+    400030: pCylinder15
+    400032: //RootNode
+    2300000: Blades_1
+    2300002: Blades_2
+    2300004: Hull
+    2300006: pCylinder11
+    2300008: pCylinder13
+    2300010: pCylinder14
+    2300012: pCylinder15
+    3300000: Blades_1
+    3300002: Blades_2
+    3300004: Hull
+    3300006: pCylinder11
+    3300008: pCylinder13
+    3300010: pCylinder14
+    3300012: pCylinder15
+    4300000: Blades_2
+    4300002: Blades_1
+    4300004: pCylinder11
+    4300006: pCylinder15
+    4300008: pCylinder13
+    4300010: pCylinder14
+    4300012: Hull
+    7400000: Up_open
+    7400002: Spin
+    7400004: Down_close
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Up_open
+      takeName: Up_open
+      firstFrame: 0
+      lastFrame: 50
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Blades_1
+        weight: 1
+      - path: Blades_1/locator3
+        weight: 1
+      - path: Blades_2
+        weight: 1
+      - path: Blades_2/locator2
+        weight: 1
+      - path: Hull
+        weight: 1
+      - path: Hull/locator1
+        weight: 1
+      - path: joint13
+        weight: 1
+      - path: joint13/joint14
+        weight: 1
+      - path: joint13/joint14/joint15
+        weight: 1
+      - path: joint16
+        weight: 1
+      - path: joint16/joint17
+        weight: 1
+      - path: joint16/joint17/joint18
+        weight: 1
+      - path: pCylinder11
+        weight: 1
+      - path: pCylinder13
+        weight: 1
+      - path: pCylinder14
+        weight: 1
+      - path: pCylinder15
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Spin
+      takeName: Spin
+      firstFrame: 50
+      lastFrame: 99
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Blades_1
+        weight: 1
+      - path: Blades_1/locator3
+        weight: 1
+      - path: Blades_2
+        weight: 1
+      - path: Blades_2/locator2
+        weight: 1
+      - path: Hull
+        weight: 1
+      - path: Hull/locator1
+        weight: 1
+      - path: joint13
+        weight: 1
+      - path: joint13/joint14
+        weight: 1
+      - path: joint13/joint14/joint15
+        weight: 1
+      - path: joint16
+        weight: 1
+      - path: joint16/joint17
+        weight: 1
+      - path: joint16/joint17/joint18
+        weight: 1
+      - path: pCylinder11
+        weight: 1
+      - path: pCylinder13
+        weight: 1
+      - path: pCylinder14
+        weight: 1
+      - path: pCylinder15
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Down_close
+      takeName: Down_close
+      firstFrame: 100
+      lastFrame: 150
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Blades_1
+        weight: 1
+      - path: Blades_1/locator3
+        weight: 1
+      - path: Blades_2
+        weight: 1
+      - path: Blades_2/locator2
+        weight: 1
+      - path: Hull
+        weight: 1
+      - path: Hull/locator1
+        weight: 1
+      - path: joint13
+        weight: 1
+      - path: joint13/joint14
+        weight: 1
+      - path: joint13/joint14/joint15
+        weight: 1
+      - path: joint16
+        weight: 1
+      - path: joint16/joint17
+        weight: 1
+      - path: joint16/joint17/joint18
+        weight: 1
+      - path: pCylinder11
+        weight: 1
+      - path: pCylinder13
+        weight: 1
+      - path: pCylinder14
+        weight: 1
+      - path: pCylinder15
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
