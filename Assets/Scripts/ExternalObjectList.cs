@@ -6,7 +6,6 @@ using Valve.VR.InteractionSystem;
 
 public class ExternalObjectList : MonoBehaviour {
 
-	[SerializeField]
 	private string _path;
 
 	public Dictionary<string, List<GameObject>> GameObjects;
@@ -17,6 +16,8 @@ public class ExternalObjectList : MonoBehaviour {
 	private Material _basicMaterial;
 
 	void Start () {
+		Directory.CreateDirectory("./objects");
+		_path = "./objects";
 		if (_path == null) {
 			Debug.LogError ("no external object folder found");
 		}
@@ -45,18 +46,18 @@ public class ExternalObjectList : MonoBehaviour {
 			}
 			//print ("done");
 		}
-
-		Instantiate(GameObjects["test"][0]);
+			
 	}
-
 	private GameObject GenObject(string name, Mesh mesh){
-		var go = Instantiate (_prefab, new Vector3(0,1000,0), Quaternion.identity);
+		/*var go = new GameObject (); */ var go = Instantiate (_prefab, new Vector3(0,0,0), Quaternion.identity);
 		go.transform.name = name;
+		go.transform.localScale = new Vector3 (0.01f,0.01f,0.01f);
 		go.GetComponent<MeshFilter> ().mesh = mesh;
 		go.GetComponent<MeshRenderer> ().material = _basicMaterial;
-		var coll = go.AddComponent<MeshCollider> ();
+		var coll = go.AddComponent <MeshCollider> ();
 		coll.convex = true;
-		Destroy (go);
+		//go.isStatic = true;
+		//Destroy (go);
 		return go;
 	}
 }
