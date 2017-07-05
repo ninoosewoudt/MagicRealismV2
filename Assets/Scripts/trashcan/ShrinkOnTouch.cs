@@ -10,18 +10,20 @@ public class ShrinkOnTouch : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Paintable") && other.gameObject.GetComponent<SizeAdjuster>() != null)
-        {
-            other.gameObject.GetComponent<SizeAdjuster>().changeSize(newSize);
-        }
+        if(other.CompareTag(Tags.paintable) && other.CompareTag(Tags.unpaintable))
+            if (other.gameObject.GetComponent<SizeAdjuster>() != null)
+            {
+                other.gameObject.GetComponent<SizeAdjuster>().changeSize(newSize);
+            }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Paintable") && other.gameObject.GetComponent<SizeAdjuster>() != null)
-        {
-            other.gameObject.GetComponent<SizeAdjuster>().oldsize();
-        }
+        if (other.CompareTag(Tags.paintable) && other.CompareTag(Tags.unpaintable))
+            if (other.gameObject.GetComponent<SizeAdjuster>() != null)
+            {
+                other.gameObject.GetComponent<SizeAdjuster>().oldsize();
+            }
     }
 
 }

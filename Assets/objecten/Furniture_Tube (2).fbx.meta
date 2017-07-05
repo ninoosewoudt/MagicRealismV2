@@ -1,0 +1,344 @@
+fileFormatVersion: 2
+guid: ea532523672f71a4cb1a8150dfe7fb0b
+timeCreated: 1499258926
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Disk
+    100002: Display
+    100004: Display 1
+    100006: Display 2
+    100008: Display 3
+    100010: //RootNode
+    100012: Handle_1
+    100014: Handle_2
+    100016: Handle_3
+    100018: Handle_4
+    100020: Handle_5
+    100022: Handle_6
+    100024: Handle_tube_1
+    100026: Handle_tube_2
+    100028: Handle_tube_3
+    100030: Hinge3
+    100032: Hinge4
+    100034: L_Back
+    100036: L_Back 1
+    100038: L_Back 2
+    100040: L_Back_arm
+    100042: L_Back_arm 1
+    100044: L_Back_arm 2
+    100046: L_Display_hinge
+    100048: L_Display_hinge 1
+    100050: L_Display_hinge1
+    100052: L_Front
+    100054: L_Front 1
+    100056: L_Front 2
+    100058: L_Front_arm
+    100060: L_Front_arm 1
+    100062: L_Front_arm 2
+    100064: L_Front_end
+    100066: L_Front_end 1
+    100068: L_Front_end 2
+    100070: L_LOW_ikHandle
+    100072: L_UP
+    100074: L_UP_Display_Hinge
+    100076: L_UP_ikHandle
+    100078: locator1
+    100080: locator2
+    100082: LOW
+    100084: Low_Cover
+    100086: Low_Display
+    100088: Low_Tube
+    100090: R_Back
+    100092: R_Back 1
+    100094: R_Back 2
+    100096: R_Back_arm
+    100098: R_Back_arm 1
+    100100: R_Back_arm 2
+    100102: R_Display_hinge
+    100104: R_Display_hinge 1
+    100106: R_Display_hinge1
+    100108: R_Front
+    100110: R_Front 1
+    100112: R_Front 2
+    100114: R_Front_arm
+    100116: R_Front_arm 1
+    100118: R_Front_arm 2
+    100120: R_Front_end
+    100122: R_Front_end 1
+    100124: R_Front_end 2
+    100126: R_Low_Display_Hinge
+    100128: R_Low_Display_Hinge1
+    100130: R_LOW_ikHandle
+    100132: R_UP
+    100134: R_UP_Display_Hinge
+    100136: R_UP_ikHandle
+    100138: UP
+    100140: Up_Cover
+    100142: Up_Display1
+    100144: UP_Tube
+    400000: Disk
+    400002: Display
+    400004: Display 1
+    400006: Display 2
+    400008: Display 3
+    400010: //RootNode
+    400012: Handle_1
+    400014: Handle_2
+    400016: Handle_3
+    400018: Handle_4
+    400020: Handle_5
+    400022: Handle_6
+    400024: Handle_tube_1
+    400026: Handle_tube_2
+    400028: Handle_tube_3
+    400030: Hinge3
+    400032: Hinge4
+    400034: L_Back
+    400036: L_Back 1
+    400038: L_Back 2
+    400040: L_Back_arm
+    400042: L_Back_arm 1
+    400044: L_Back_arm 2
+    400046: L_Display_hinge
+    400048: L_Display_hinge 1
+    400050: L_Display_hinge1
+    400052: L_Front
+    400054: L_Front 1
+    400056: L_Front 2
+    400058: L_Front_arm
+    400060: L_Front_arm 1
+    400062: L_Front_arm 2
+    400064: L_Front_end
+    400066: L_Front_end 1
+    400068: L_Front_end 2
+    400070: L_LOW_ikHandle
+    400072: L_UP
+    400074: L_UP_Display_Hinge
+    400076: L_UP_ikHandle
+    400078: locator1
+    400080: locator2
+    400082: LOW
+    400084: Low_Cover
+    400086: Low_Display
+    400088: Low_Tube
+    400090: R_Back
+    400092: R_Back 1
+    400094: R_Back 2
+    400096: R_Back_arm
+    400098: R_Back_arm 1
+    400100: R_Back_arm 2
+    400102: R_Display_hinge
+    400104: R_Display_hinge 1
+    400106: R_Display_hinge1
+    400108: R_Front
+    400110: R_Front 1
+    400112: R_Front 2
+    400114: R_Front_arm
+    400116: R_Front_arm 1
+    400118: R_Front_arm 2
+    400120: R_Front_end
+    400122: R_Front_end 1
+    400124: R_Front_end 2
+    400126: R_Low_Display_Hinge
+    400128: R_Low_Display_Hinge1
+    400130: R_LOW_ikHandle
+    400132: R_UP
+    400134: R_UP_Display_Hinge
+    400136: R_UP_ikHandle
+    400138: UP
+    400140: Up_Cover
+    400142: Up_Display1
+    400144: UP_Tube
+    2300000: Disk
+    2300002: Display 2
+    2300004: Display 3
+    2300006: Handle_1
+    2300008: Handle_2
+    2300010: Handle_3
+    2300012: Handle_4
+    2300014: Handle_5
+    2300016: Handle_6
+    2300018: Handle_tube_1
+    2300020: Handle_tube_2
+    2300022: Handle_tube_3
+    2300024: Hinge3
+    2300026: Hinge4
+    2300028: L_Back_arm
+    2300030: L_Back_arm 1
+    2300032: L_Back_arm 2
+    2300034: L_Display_hinge
+    2300036: L_Display_hinge 1
+    2300038: L_Display_hinge1
+    2300040: L_Front_arm
+    2300042: L_Front_arm 1
+    2300044: L_Front_arm 2
+    2300046: L_UP_Display_Hinge
+    2300048: Low_Cover
+    2300050: Low_Tube
+    2300052: R_Back_arm
+    2300054: R_Back_arm 1
+    2300056: R_Back_arm 2
+    2300058: R_Display_hinge
+    2300060: R_Display_hinge 1
+    2300062: R_Display_hinge1
+    2300064: R_Front_arm
+    2300066: R_Front_arm 1
+    2300068: R_Front_arm 2
+    2300070: R_Low_Display_Hinge
+    2300072: R_Low_Display_Hinge1
+    2300074: R_UP_Display_Hinge
+    2300076: Up_Cover
+    2300078: UP_Tube
+    3300000: Disk
+    3300002: Display 2
+    3300004: Display 3
+    3300006: Handle_1
+    3300008: Handle_2
+    3300010: Handle_3
+    3300012: Handle_4
+    3300014: Handle_5
+    3300016: Handle_6
+    3300018: Handle_tube_1
+    3300020: Handle_tube_2
+    3300022: Handle_tube_3
+    3300024: Hinge3
+    3300026: Hinge4
+    3300028: L_Back_arm
+    3300030: L_Back_arm 1
+    3300032: L_Back_arm 2
+    3300034: L_Display_hinge
+    3300036: L_Display_hinge 1
+    3300038: L_Display_hinge1
+    3300040: L_Front_arm
+    3300042: L_Front_arm 1
+    3300044: L_Front_arm 2
+    3300046: L_UP_Display_Hinge
+    3300048: Low_Cover
+    3300050: Low_Tube
+    3300052: R_Back_arm
+    3300054: R_Back_arm 1
+    3300056: R_Back_arm 2
+    3300058: R_Display_hinge
+    3300060: R_Display_hinge 1
+    3300062: R_Display_hinge1
+    3300064: R_Front_arm
+    3300066: R_Front_arm 1
+    3300068: R_Front_arm 2
+    3300070: R_Low_Display_Hinge
+    3300072: R_Low_Display_Hinge1
+    3300074: R_UP_Display_Hinge
+    3300076: Up_Cover
+    3300078: UP_Tube
+    4300000: Low_Tube
+    4300002: Disk
+    4300004: Handle_1
+    4300006: Handle_2
+    4300008: Handle_3
+    4300010: Handle_4
+    4300012: Handle_5
+    4300014: Handle_6
+    4300016: Handle_tube_1
+    4300018: Handle_tube_2
+    4300020: Handle_tube_3
+    4300022: Hinge3
+    4300024: L_Front_arm
+    4300026: L_Back_arm
+    4300028: Display
+    4300030: L_Display_hinge
+    4300032: R_Display_hinge
+    4300034: L_Display_hinge1
+    4300036: R_Display_hinge1
+    4300038: R_Low_Display_Hinge
+    4300040: R_Front_arm
+    4300042: R_Back_arm
+    4300044: Hinge4
+    4300046: L_Front_arm
+    4300048: L_Back_arm
+    4300050: R_Low_Display_Hinge1
+    4300052: R_Front_arm
+    4300054: R_Back_arm
+    4300056: Low_Cover
+    4300058: Up_Cover
+    4300060: R_UP_Display_Hinge
+    4300062: R_Front_arm
+    4300064: R_Back_arm
+    4300066: L_UP_Display_Hinge
+    4300068: L_Front_arm
+    4300070: L_Back_arm
+    4300072: Display
+    4300074: L_Display_hinge
+    4300076: R_Display_hinge
+    4300078: UP_Tube
+    7400000: Spawn
+    7400002: Despawn
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
