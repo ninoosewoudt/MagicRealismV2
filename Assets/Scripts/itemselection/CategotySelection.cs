@@ -5,11 +5,14 @@ using UnityEngine;
 
 public class CategotySelection : MonoBehaviour
 {
-    private float lastRotation;
+    [SerializeField]
+    private int toBoigStep = 100;
+
+    private float lastRotation,lastSwitchPoint;
 
 	void Awake ()
     {
-        lastRotation = this.gameObject.transform.localRotation.x;
+        lastSwitchPoint = this.gameObject.transform.localRotation.x;
 	}
 
 	void FixedUpdate ()
